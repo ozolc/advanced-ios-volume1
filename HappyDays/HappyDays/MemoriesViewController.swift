@@ -114,9 +114,39 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             }
             
             // create thumbnail here
+            if let thumbnail = resize(image: image, to: 200) {
+                let imagePath = getDocumentsDirectory().appendingPathComponent(thumbnailName)
+                if let jpegData = thumbnail.jpegData(compressionQuality: 0.8) {
+                    try jpegData.write(to: imagePath, options: [.atomicWrite])
+                }
+            }
+            
         } catch {
             print("Failed to save to disk.")
         }
+    }
+    
+    func resize(image: UIImage, to width: CGFloat) -> UIImage? {
+        // calculate how much we need to bring the width down to match our target size
+        let scale = width / image.size.width
+        
+        // bring the height down by the same amount so that the aspect ratio is preserved
+        let height = image.size.height * scale
+        
+        // create a new image context we can draw into
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0)
+        
+        // draw the original image into the context
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        // pull out the resized version
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // end the context so UIKit can clean up
+        UIGraphicsEndImageContext()
+        
+        // send it back to the caller
+        return newImage
     }
     
 }
