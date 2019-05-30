@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 import Speech
 
-class MemoriesViewController: UICollectionViewController {
+class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var memories = [URL]()
 
@@ -19,12 +19,21 @@ class MemoriesViewController: UICollectionViewController {
         super.viewDidLoad()
 
         loadMemories()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         checkPermissions()
+    }
+    
+    @objc func addTapped() {
+        let vc = UIImagePickerController()
+        vc.modalPresentationStyle = .formSheet
+        vc.delegate = self
+        navigationController?.present(vc, animated: true)
     }
     
     func checkPermissions() {
@@ -75,6 +84,39 @@ class MemoriesViewController: UICollectionViewController {
         
         // reload our list of memories
         collectionView.reloadSections(IndexSet(integer: 1))
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true)
+        
+        if let possibleImage = info[.originalImage] as? UIImage {
+            saveNewMemory(image: possibleImage)
+            loadMemories()
+        }
+    }
+    
+    func saveNewMemory(image: UIImage) {
+        // create a unique name for this memory
+        let memoryName = "memory-\(Date().timeIntervalSince1970)"
+        
+        // use the unique name to create filenames for the full-size image and the thumbnail
+        let imageName = memoryName + ".jpg"
+        let thumbnailName = memoryName + ".thumb"
+        
+        do {
+            // create a URL where we can write the JPEG to
+            let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+            
+            // convert the UIImage into a JPEG data object
+            if let jpegData = image.jpegData(compressionQuality: 0.8) {
+                // write that data to the URL we created
+                try jpegData.write(to: imagePath, options: [.atomicWrite])
+            }
+            
+            // create thumbnail here
+        } catch {
+            print("Failed to save to disk.")
+        }
     }
     
 }
