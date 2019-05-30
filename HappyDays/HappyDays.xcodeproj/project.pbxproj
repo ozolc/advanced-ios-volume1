@@ -12,6 +12,8 @@
 		B0E5AB9622A003A2003AE54A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E5AB9422A003A2003AE54A /* Main.storyboard */; };
 		B0E5AB9822A003A3003AE54A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E5AB9722A003A3003AE54A /* Assets.xcassets */; };
 		B0E5AB9B22A003A3003AE54A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E5AB9922A003A3003AE54A /* LaunchScreen.storyboard */; };
+		B0E5ABA322A008D6003AE54A /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E5ABA222A008D6003AE54A /* MemoriesViewController.swift */; };
+		B0E5ABA522A00DFA003AE54A /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E5ABA422A00DFA003AE54A /* MemoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B0E5AB9722A003A3003AE54A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0E5AB9A22A003A3003AE54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0E5AB9C22A003A3003AE54A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E5ABA222A008D6003AE54A /* MemoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
+		B0E5ABA422A00DFA003AE54A /* MemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				B0E5AB9722A003A3003AE54A /* Assets.xcassets */,
 				B0E5AB9922A003A3003AE54A /* LaunchScreen.storyboard */,
 				B0E5AB9C22A003A3003AE54A /* Info.plist */,
+				B0E5ABA222A008D6003AE54A /* MemoriesViewController.swift */,
+				B0E5ABA422A00DFA003AE54A /* MemoryCell.swift */,
 			);
 			path = HappyDays;
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E5ABA522A00DFA003AE54A /* MemoryCell.swift in Sources */,
+				B0E5ABA322A008D6003AE54A /* MemoriesViewController.swift in Sources */,
 				B0E5AB9322A003A2003AE54A /* ViewController.swift in Sources */,
 				B0E5AB9122A003A2003AE54A /* AppDelegate.swift in Sources */,
 			);
