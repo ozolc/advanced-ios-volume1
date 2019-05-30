@@ -58,14 +58,14 @@
 		B0E5AB8F22A003A2003AE54A /* HappyDays */ = {
 			isa = PBXGroup;
 			children = (
-				B0E5AB9022A003A2003AE54A /* AppDelegate.swift */,
-				B0E5AB9222A003A2003AE54A /* ViewController.swift */,
-				B0E5AB9422A003A2003AE54A /* Main.storyboard */,
-				B0E5AB9722A003A3003AE54A /* Assets.xcassets */,
-				B0E5AB9922A003A3003AE54A /* LaunchScreen.storyboard */,
 				B0E5AB9C22A003A3003AE54A /* Info.plist */,
+				B0E5AB9022A003A2003AE54A /* AppDelegate.swift */,
 				B0E5ABA222A008D6003AE54A /* MemoriesViewController.swift */,
 				B0E5ABA422A00DFA003AE54A /* MemoryCell.swift */,
+				B0E5AB9222A003A2003AE54A /* ViewController.swift */,
+				B0E5AB9722A003A3003AE54A /* Assets.xcassets */,
+				B0E5AB9922A003A3003AE54A /* LaunchScreen.storyboard */,
+				B0E5AB9422A003A2003AE54A /* Main.storyboard */,
 			);
 			path = HappyDays;
 			sourceTree = "<group>";
