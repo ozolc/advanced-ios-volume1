@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 import Speech
 
-class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
     var memories = [URL]()
 
@@ -44,7 +44,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         
         // make a single boolean out of all three
         let authorized = photosAuthorized && recordingAuthorized && transcribeAuthorized
-        
+
         // if we're missing one, show the first run screen
         if authorized == false {
             if let vc = storyboard?.instantiateViewController(withIdentifier: "FirstRun") {
@@ -93,6 +93,50 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             saveNewMemory(image: possibleImage)
             loadMemories()
         }
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        } else {
+            return memories.count
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Memory", for: indexPath) as! MemoryCell
+        
+        let memory = memories[indexPath.item]
+        let imageName = thumbnailURL(for: memory).path
+        print(imageName)
+        let image = UIImage(contentsOfFile: imageName)
+        cell.imageView.image = image
+        
+        return cell
+    }
+    
+    func imageURL(for memory: URL) -> URL {
+        return memory.appendingPathExtension("jpg")
+    }
+    
+    func thumbnailURL(for memory: URL) -> URL {
+        return memory.appendingPathExtension("thumb")
+    }
+    
+    func audioURL(for memory: URL) -> URL {
+        return memory.appendingPathExtension("m4a")
+    }
+    
+    func transcriptionURL(for memory: URL) -> URL {
+        return memory.appendingPathExtension("txt")
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
     }
     
     func saveNewMemory(image: UIImage) {
@@ -147,6 +191,14 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         
         // send it back to the caller
         return newImage
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize.zero
+        } else {
+            return CGSize(width: 0, height: 50)
+        }
     }
     
 }

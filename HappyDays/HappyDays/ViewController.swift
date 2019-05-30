@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func requestPermissions(_ sender: AnyObject) {
-        requestRecordPermissions()
+        requestPhotosPermission()
     }
     
     func requestPhotosPermission() {
