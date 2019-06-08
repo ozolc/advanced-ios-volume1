@@ -17,6 +17,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     var activeMemory: URL!
     var audioRecorder: AVAudioRecorder?
     var recordingURL: URL!
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,6 +147,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     func recordMemory() {
+        audioPlayer?.stop()
         // 1: the easy bit!
         collectionView.backgroundColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)
         
@@ -316,6 +318,28 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             return CGSize.zero
         } else {
             return CGSize(width: 0, height: 50)
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memory = memories[indexPath.row]
+        let fm = FileManager.default
+        
+        do {
+            let audioName = audioURL(for: memory)
+            let transcriptionName = transcriptionURL(for: memory)
+            
+            if fm.fileExists(atPath: audioName.path) {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioName)
+                audioPlayer?.play()
+            }
+            
+            if fm.fileExists(atPath: transcriptionName.path) {
+                let contents = try String(contentsOf: transcriptionName)
+                print(contents)
+            }
+        } catch {
+            print("Error loading audio")
         }
     }
     
