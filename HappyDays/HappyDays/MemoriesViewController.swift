@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 import Photos
 import Speech
+import CoreSpotlight
+import MobileCoreServices
 
 class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, AVAudioRecorderDelegate {
     
@@ -210,7 +212,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     func transcribeAudio(memory: URL) {
         // get paths to where the audio is, and where the transcription should be
         let audio = audioURL(for: memory)
-        let transciption = transcriptionURL(for: memory)
+        let transcription = transcriptionURL(for: memory)
         
         // create a new recognizer and point it at our audio
         let recognizer = SFSpeechRecognizer()
@@ -231,12 +233,37 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
                 
                 // ...and write it to disk at the correct filename for this memory.
                 do {
-                    try text.write(to: transciption, atomically: true, encoding: String.Encoding.utf8)
+                    try text.write(to: transcription, atomically: true, encoding: String.Encoding.utf8)
+                    self.indexMemory(memory: memory, text: text)
                 } catch {
                     print("Failed to save transcription.")
                 }
             }
         }
+    }
+    
+    func indexMemory(memory: URL, text: String) {
+        // create a basic attribute set
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = "Happy Days Memory"
+        attributeSet.contentDescription = text
+        attributeSet.thumbnailURL = thumbnailURL(for: memory)
+        
+        // wrap it in a searchable item, using the memory's full path as its unique identifier
+        let item = CSSearchableItem(uniqueIdentifier: memory.path, domainIdentifier: "com.hackingwithswift", attributeSet: attributeSet)
+        
+        // make it never expire
+        item.expirationDate = Date.distantFuture
+        
+        // ask Spotlight to index the item
+        CSSearchableIndex.default().indexSearchableItems([item]) { error in
+            if let error = error {
+                print("Indexing error: \(error.localizedDescription)")
+            } else {
+                print("Search item successfully indexed: \(text)")
+            }
+        }
+        
     }
     
     func imageURL(for memory: URL) -> URL {
