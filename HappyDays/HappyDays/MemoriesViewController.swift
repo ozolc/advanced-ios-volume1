@@ -183,7 +183,26 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     func finishRecording(success: Bool) {
+        collectionView.backgroundColor = UIColor.darkGray
         
+        audioRecorder?.stop()
+        
+        if success {
+            do {
+                let memoryAudioURL = activeMemory.appendingPathExtension("m4a")
+                let fm = FileManager.default
+                
+                if fm.fileExists(atPath: memoryAudioURL.path) {
+                    try fm.removeItem(at: memoryAudioURL)
+                }
+                
+                try fm.moveItem(at: recordingURL, to: memoryAudioURL)
+                
+                transcribeAudio(memory: activeMemory)
+            } catch let error {
+                print("Failure finishing recording: \(error)")
+            }
+        }
     }
     
     func transcribeAudio(memory: URL) {
