@@ -108,7 +108,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="Vso-XB-TaY" id="QbP-RG-Xtq"/>
+                                        <outlet property="delegate" destination="Vso-XB-TaY" id="Mgf-aR-NGk"/>
                                     </connections>
                                 </searchBar>
                             </subviews>
