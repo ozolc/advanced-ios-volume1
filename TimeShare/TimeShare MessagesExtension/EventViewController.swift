@@ -52,8 +52,26 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 1: dequeue a cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "Date", for: indexPath)
-        cell.textLabel?.text = "Date goes here"
+        
+        // pull out the corresponding date and format it neatly
+        let date = dates[indexPath.row]
+        cell.textLabel?.text = DateFormatter.localizedString(from: date, dateStyle: .long, timeStyle: .short)
+        
+        // add a checkmark if we voted for this date
+        if ourVotes[indexPath.row] == 1 {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
+        // add a vote count if other people voted for this date
+        if allVotes[indexPath.row] > 0 {
+            cell.detailTextLabel?.text = "Votes: \(allVotes[indexPath.row])"
+        } else {
+            cell.detailTextLabel?.text = ""
+        }
         
         return cell
     }
