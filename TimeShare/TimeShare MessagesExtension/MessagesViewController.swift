@@ -22,14 +22,15 @@ class MessagesViewController: MSMessagesAppViewController {
         
     }
     
-    func displayEventViewController(converstion: MSConversation?, identifier: String) {
+    func displayEventViewController(conversation: MSConversation?, identifier: String) {
         
         // 0: sanity check, is there a conversation?
-        guard let converstion = converstion else { return }
+        guard let conversation = conversation else { return }
         
         // 1: create the child view controller
         guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? EventViewController else { return }
 
+        vc.load(from: conversation.selectedMessage)
         vc.delegate = self
         
         // 2: add the child to the parent so that events are forwarded
@@ -80,6 +81,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // 6: create a blank, default message layout
         let layout = MSMessageTemplateLayout()
+        layout.caption = "I voted"
         message.layout = layout
         
         // 7: insert it into the conversation
@@ -100,6 +102,10 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
+        if presentationStyle == .expanded {
+            displayEventViewController(conversation: conversation, identifier: "SelectDates")
+        }
+        
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
         
@@ -141,7 +147,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         
         if presentationStyle == .expanded {
-            displayEventViewController(converstion: activeConversation, identifier: "CreateEvent")
+            displayEventViewController(conversation: activeConversation, identifier: "CreateEvent")
         }
     }
     

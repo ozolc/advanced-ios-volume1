@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B0B82BB722AE3F630053D860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BB622AE3F630053D860 /* Assets.xcassets */; };
 		B0B82BBE22AE3F630053D860 /* TimeShare MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0B82BBD22AE3F630053D860 /* TimeShare MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B0B82BC322AE3F630053D860 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B82BC222AE3F630053D860 /* Messages.framework */; };
+		B0B82BC322AE3F630053D860 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B82BC222AE3F630053D860 /* Messages.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		B0B82BC622AE3F630053D860 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B82BC522AE3F630053D860 /* MessagesViewController.swift */; };
 		B0B82BC922AE3F630053D860 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BC722AE3F630053D860 /* MainInterface.storyboard */; };
 		B0B82BCB22AE3F640053D860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BCA22AE3F640053D860 /* Assets.xcassets */; };
