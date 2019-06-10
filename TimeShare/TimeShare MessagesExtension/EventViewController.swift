@@ -75,5 +75,19 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+                ourVotes[indexPath.row] = 0
+            } else {
+                cell.accessoryType = .checkmark
+                ourVotes[indexPath.row] = 1
+            }
+        }
+    }
 
 }
