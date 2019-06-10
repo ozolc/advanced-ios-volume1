@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0B82BB722AE3F630053D860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BB622AE3F630053D860 /* Assets.xcassets */; };
+		B0B82BBE22AE3F630053D860 /* TimeShare MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0B82BBD22AE3F630053D860 /* TimeShare MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0B82BC322AE3F630053D860 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B82BC222AE3F630053D860 /* Messages.framework */; };
+		B0B82BC622AE3F630053D860 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B82BC522AE3F630053D860 /* MessagesViewController.swift */; };
+		B0B82BC922AE3F630053D860 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BC722AE3F630053D860 /* MainInterface.storyboard */; };
+		B0B82BCB22AE3F640053D860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B82BCA22AE3F640053D860 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0B82BBF22AE3F630053D860 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B82BAD22AE3F620053D860 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B82BBC22AE3F630053D860;
+			remoteInfo = "TimeShare MessagesExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B0B82BD222AE3F640053D860 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B0B82BBE22AE3F630053D860 /* TimeShare MessagesExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B0B82BB322AE3F630053D860 /* TimeShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B82BB622AE3F630053D860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0B82BB822AE3F630053D860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B82BBD22AE3F630053D860 /* TimeShare MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TimeShare MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B82BC222AE3F630053D860 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		B0B82BC522AE3F630053D860 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		B0B82BC822AE3F630053D860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B0B82BCA22AE3F640053D860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0B82BCC22AE3F640053D860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0B82BBA22AE3F630053D860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B82BC322AE3F630053D860 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0B82BAC22AE3F620053D860 = {
+			isa = PBXGroup;
+			children = (
+				B0B82BB522AE3F630053D860 /* TimeShare */,
+				B0B82BC422AE3F630053D860 /* TimeShare MessagesExtension */,
+				B0B82BC122AE3F630053D860 /* Frameworks */,
+				B0B82BB422AE3F630053D860 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0B82BB422AE3F630053D860 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0B82BB322AE3F630053D860 /* TimeShare.app */,
+				B0B82BBD22AE3F630053D860 /* TimeShare MessagesExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0B82BB522AE3F630053D860 /* TimeShare */ = {
+			isa = PBXGroup;
+			children = (
+				B0B82BB622AE3F630053D860 /* Assets.xcassets */,
+				B0B82BB822AE3F630053D860 /* Info.plist */,
+			);
+			path = TimeShare;
+			sourceTree = "<group>";
+		};
+		B0B82BC122AE3F630053D860 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0B82BC222AE3F630053D860 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0B82BC422AE3F630053D860 /* TimeShare MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B0B82BC522AE3F630053D860 /* MessagesViewController.swift */,
+				B0B82BC722AE3F630053D860 /* MainInterface.storyboard */,
+				B0B82BCA22AE3F640053D860 /* Assets.xcassets */,
+				B0B82BCC22AE3F640053D860 /* Info.plist */,
+			);
+			path = "TimeShare MessagesExtension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0B82BB222AE3F620053D860 /* TimeShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0B82BD322AE3F640053D860 /* Build configuration list for PBXNativeTarget "TimeShare" */;
+			buildPhases = (
+				B0B82BB122AE3F620053D860 /* Resources */,
+				B0B82BD222AE3F640053D860 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0B82BC022AE3F630053D860 /* PBXTargetDependency */,
+			);
+			name = TimeShare;
+			productName = TimeShare;
+			productReference = B0B82BB322AE3F630053D860 /* TimeShare.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		B0B82BBC22AE3F630053D860 /* TimeShare MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0B82BCF22AE3F640053D860 /* Build configuration list for PBXNativeTarget "TimeShare MessagesExtension" */;
+			buildPhases = (
+				B0B82BB922AE3F630053D860 /* Sources */,
+				B0B82BBA22AE3F630053D860 /* Frameworks */,
+				B0B82BBB22AE3F630053D860 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TimeShare MessagesExtension";
+			productName = "TimeShare MessagesExtension";
+			productReference = B0B82BBD22AE3F630053D860 /* TimeShare MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0B82BAD22AE3F620053D860 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Maksim Nosov";
+				TargetAttributes = {
+					B0B82BB222AE3F620053D860 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					B0B82BBC22AE3F630053D860 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B0B82BB022AE3F620053D860 /* Build configuration list for PBXProject "TimeShare" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0B82BAC22AE3F620053D860;
+			productRefGroup = B0B82BB422AE3F630053D860 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0B82BB222AE3F620053D860 /* TimeShare */,
+				B0B82BBC22AE3F630053D860 /* TimeShare MessagesExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0B82BB122AE3F620053D860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B82BB722AE3F630053D860 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0B82BBB22AE3F630053D860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B82BCB22AE3F640053D860 /* Assets.xcassets in Resources */,
+				B0B82BC922AE3F630053D860 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0B82BB922AE3F630053D860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B82BC622AE3F630053D860 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0B82BC022AE3F630053D860 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B82BBC22AE3F630053D860 /* TimeShare MessagesExtension */;
+			targetProxy = B0B82BBF22AE3F630053D860 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B0B82BC722AE3F630053D860 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0B82BC822AE3F630053D860 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0B82BCD22AE3F640053D860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B0B82BCE22AE3F640053D860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0B82BD022AE3F640053D860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "TimeShare MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ozolc.TimeShare.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0B82BD122AE3F640053D860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "TimeShare MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ozolc.TimeShare.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B0B82BD422AE3F640053D860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TimeShare/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = ozolc.TimeShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0B82BD522AE3F640053D860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TimeShare/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = ozolc.TimeShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0B82BB022AE3F620053D860 /* Build configuration list for PBXProject "TimeShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0B82BCD22AE3F640053D860 /* Debug */,
+				B0B82BCE22AE3F640053D860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0B82BCF22AE3F640053D860 /* Build configuration list for PBXNativeTarget "TimeShare MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0B82BD022AE3F640053D860 /* Debug */,
+				B0B82BD122AE3F640053D860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0B82BD322AE3F640053D860 /* Build configuration list for PBXNativeTarget "TimeShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0B82BD422AE3F640053D860 /* Debug */,
+				B0B82BD522AE3F640053D860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0B82BAD22AE3F620053D860 /* Project object */;
+}
