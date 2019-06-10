@@ -23,11 +23,14 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func displayEventViewController(converstion: MSConversation?, identifier: String) {
+        
         // 0: sanity check, is there a conversation?
         guard let converstion = converstion else { return }
         
         // 1: create the child view controller
         guard let vc = storyboard?.instantiateViewController(withIdentifier: identifier) as? EventViewController else { return }
+
+        vc.delegate = self
         
         // 2: add the child to the parent so that events are forwarded
         addChild(vc)
@@ -45,6 +48,10 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // 5: tell the child it has now moved to a new parent view controller
         vc.didMove(toParent: self)
+    }
+    
+    func createMessage(with dates: [Date], votes: [Int]) {
+        
     }
     
     // MARK: - Conversation Handling
