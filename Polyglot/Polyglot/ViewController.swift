@@ -58,8 +58,23 @@ class ViewController: UITableViewController {
         
         cell.textLabel?.text = split[0]
         
+        cell.detailTextLabel?.text = ""
+        
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.detailTextLabel?.text == "" {
+                let word = words[indexPath.row]
+                let split = word.components(separatedBy: "::")
+                cell.detailTextLabel?.text = split[1]
+            } else {
+                cell.detailTextLabel?.text = ""
+            }
+        }
+    }
 }
 
