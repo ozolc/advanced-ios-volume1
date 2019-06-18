@@ -23,6 +23,9 @@ class TestViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(nextTapped))
         words.shuffle()
         title = "TEST"
+        
+        stackView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        stackView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,14 +58,30 @@ class TestViewController: UIViewController {
         }
         
         // pull out the French word at the current question position
-        prompt.textColor = words[questionCounter].components(separatedBy: "::")[1]
+        prompt.text = words[questionCounter].components(separatedBy: "::")[1]
+        
+        let animation = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5) {
+            self.stackView.alpha = 1
+            self.stackView.transform = CGAffineTransform.identity
+        }
+        
+        animation.startAnimation()
     }
     
     func prepareForNextQuestion() {
-        // reset the prompt back to black
-        prompt.textColor = UIColor.black
+        let animation = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [unowned self] in
+            self.stackView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.stackView.alpha = 0
+        }
         
-        // proceed with the next question
-        askQuestion()
+        animation.addCompletion { [unowned self] position in
+            // reset the prompt back to black
+            self.prompt.textColor = UIColor.black
+            // proceed with the next question
+            self.askQuestion()
+        }
+        
+        animation.startAnimation()
     }
+    
 }
