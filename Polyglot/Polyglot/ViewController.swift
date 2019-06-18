@@ -26,6 +26,50 @@ class ViewController: UITableViewController {
         } else {
             saveInitialValues(to: defaults)
         }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWord))
+    }
+    
+    @objc func addNewWord() {
+        // create our alert controller
+        let ac = UIAlertController(title: "Add new word", message: nil, preferredStyle: .alert)
+        
+        // add two text fields, one for English and one for French
+        ac.addTextField { (textField) in
+            textField.placeholder = "English"
+        }
+        
+        ac.addTextField { (textField) in
+            textField.placeholder = "French"
+        }
+        
+        // create an "Add Word" button that submits the user's input
+        let submitAction = UIAlertAction(title: "Add Word", style: .default) { [unowned self, ac] (action: UIAlertAction!) in
+            // pull out the English and French words, or an empty string if there was a problem
+            let firstWord = ac.textFields?[0].text ?? ""
+            let secondWord = ac.textFields?[1].text ?? ""
+            
+            // submit the English and French word to the insertFlashcard() method
+            self.insertFlashcard(first: firstWord, second: secondWord)
+        }
+        
+        // add the submit action, plus a cancel button
+        ac.addAction(submitAction)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // present the alert controller to the user
+        present(ac, animated: true)
+    }
+    
+    func insertFlashcard(first: String, second: String) {
+        guard first.count > 0 && second.count > 0 else { return }
+        
+        let newIndexPath = IndexPath(row: words.count, section: 0)
+        
+        words.append("\(first)::\(second)")
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        
+        saveWords()
     }
     
     func saveInitialValues(to defaults: UserDefaults) {
@@ -62,6 +106,11 @@ class ViewController: UITableViewController {
         
         return cell
     }
+    
+    func saveWords() {
+        let defaults = UserDefaults.standard
+        defaults.set(words, forKey: "Words")
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -75,6 +124,12 @@ class ViewController: UITableViewController {
                 cell.detailTextLabel?.text = ""
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        words.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        saveWords()
     }
 }
 
