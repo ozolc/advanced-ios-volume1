@@ -23,6 +23,16 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
                 words = savedWords
             }
         }
+        
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .compact {
+            preferredContentSize = CGSize(width: 0, height: 110)
+        } else {
+            preferredContentSize = CGSize(width: 0, height: 440)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,6 +52,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         cell.textLabel?.text = split[0]
         
         cell.detailTextLabel?.text = ""
+        
+        cell.selectedBackgroundView = UIView()
+        cell.selectedBackgroundView!.backgroundColor = UIColor(white: 1, alpha: 0.20)
         
         return cell
     }
