@@ -18,9 +18,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = UserDefaults.standard
-        if let savedWords = defaults.object(forKey: "Words") as? [String] {
-            words = savedWords
+        if let defaults = UserDefaults(suiteName: "group.ozolc.polyglot") {
+            if let savedWords = defaults.object(forKey: "Words") as? [String] {
+                words = savedWords
+            }
         }
     }
     

@@ -19,12 +19,12 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
         title = "POLYGOT"
         
-        let defaults = UserDefaults.standard
-        
-        if let savedWords = defaults.object(forKey: "Words") as? [String] {
-            words = savedWords
-        } else {
-            saveInitialValues(to: defaults)
+        if let defaults = UserDefaults(suiteName: "group.ozolc.polyglot") {
+            if let savedWords = defaults.object(forKey: "Words") as? [String] {
+                words = savedWords
+            } else {
+                saveInitialValues(to: defaults)
+            }
         }
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWord))
@@ -108,8 +108,9 @@ class ViewController: UITableViewController {
     }
     
     func saveWords() {
-        let defaults = UserDefaults.standard
-        defaults.set(words, forKey: "Words")
+        if let defaults = UserDefaults(suiteName: "group.ozolc.polyglot") {
+            defaults.set(words, forKey: "Words")
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
