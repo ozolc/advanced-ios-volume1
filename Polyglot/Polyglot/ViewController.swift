@@ -28,6 +28,16 @@ class ViewController: UITableViewController {
         }
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWord))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startTest))
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "End Test", style: .plain, target: nil, action: nil)
+    }
+    
+    @objc func startTest() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Test") as? TestViewController else { return }
+        vc.words = words
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func addNewWord() {

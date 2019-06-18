@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,6 +54,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kx-Dw-OXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1097.1014492753625" y="145.98214285714286"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="3G4-SN-74b">
+            <objects>
+                <viewController storyboardIdentifier="Test" id="fMP-p6-99D" customClass="TestViewController" customModule="Polyglot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Abi-qx-EpF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9F8-91-dNf">
+                                <rect key="frame" x="71.5" y="394.5" width="271" height="107"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you say it in English?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9df-mc-qTW">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LE CHAMEAU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RT4-xM-FZb">
+                                        <rect key="frame" x="0.0" y="60.5" width="271" height="46.5"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9F8-91-dNf" firstAttribute="centerX" secondItem="Abi-qx-EpF" secondAttribute="centerX" id="5Xy-e5-AcN"/>
+                            <constraint firstItem="9F8-91-dNf" firstAttribute="centerY" secondItem="Abi-qx-EpF" secondAttribute="centerY" id="BpU-s4-62S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="co8-Rb-rNf"/>
+                    </view>
+                    <connections>
+                        <outlet property="prompt" destination="RT4-xM-FZb" id="bxl-de-a6I"/>
+                        <outlet property="stackView" destination="9F8-91-dNf" id="EZ3-Ac-Log"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cnk-iv-Bzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1939" y="146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMZ-c3-Orc">
