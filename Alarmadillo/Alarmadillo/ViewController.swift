@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    
+    var groups = [Group]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
