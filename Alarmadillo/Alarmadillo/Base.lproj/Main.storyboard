@@ -74,7 +74,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name this group" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-un-t4e">
-                                            <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                            <rect key="frame" x="20" y="11.5" width="374" height="21"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -84,9 +84,9 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="r7a-un-t4e" secondAttribute="trailing" id="3Iw-wf-Yhf"/>
-                                        <constraint firstItem="r7a-un-t4e" firstAttribute="leading" secondItem="8Sh-HU-DZp" secondAttribute="leading" id="SkS-wA-sDP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="r7a-un-t4e" secondAttribute="trailing" id="aTT-ff-Zn3"/>
                                         <constraint firstItem="r7a-un-t4e" firstAttribute="centerY" secondItem="8Sh-HU-DZp" secondAttribute="centerY" id="lVt-do-A7w"/>
+                                        <constraint firstItem="r7a-un-t4e" firstAttribute="leading" secondItem="8Sh-HU-DZp" secondAttribute="leadingMargin" id="qfK-iM-zkc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -176,7 +176,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name this alarm" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dbz-WS-S4Q">
-                                                    <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                                    <rect key="frame" x="10" y="11.5" width="404" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -187,7 +187,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="dbz-WS-S4Q" secondAttribute="trailingMargin" constant="8" id="3fO-U9-cW9"/>
-                                                <constraint firstItem="dbz-WS-S4Q" firstAttribute="leading" secondItem="oIa-QA-Vi3" secondAttribute="leading" id="bxk-kO-R1Y"/>
+                                                <constraint firstItem="dbz-WS-S4Q" firstAttribute="leading" secondItem="oIa-QA-Vi3" secondAttribute="leading" constant="10" id="bxk-kO-R1Y"/>
                                                 <constraint firstItem="dbz-WS-S4Q" firstAttribute="centerY" secondItem="oIa-QA-Vi3" secondAttribute="centerY" id="fAZ-BH-2Bu"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -200,7 +200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a description" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-f1-a4P">
-                                                    <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                                    <rect key="frame" x="10" y="11.5" width="394" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -210,9 +210,9 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="2mM-f1-a4P" secondAttribute="trailing" id="7ku-V9-OIr"/>
+                                                <constraint firstAttribute="trailing" secondItem="2mM-f1-a4P" secondAttribute="trailing" constant="10" id="7ku-V9-OIr"/>
                                                 <constraint firstItem="2mM-f1-a4P" firstAttribute="centerY" secondItem="ZvR-Zk-mrm" secondAttribute="centerY" id="A3S-Sx-z01"/>
-                                                <constraint firstItem="2mM-f1-a4P" firstAttribute="leading" secondItem="ZvR-Zk-mrm" secondAttribute="leading" id="wUw-BV-SxE"/>
+                                                <constraint firstItem="2mM-f1-a4P" firstAttribute="leading" secondItem="ZvR-Zk-mrm" secondAttribute="leading" constant="10" id="wUw-BV-SxE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
