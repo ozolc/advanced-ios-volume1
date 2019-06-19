@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UNUserNotificationCenterDelegate {
     
     var groups = [Group]()
 
