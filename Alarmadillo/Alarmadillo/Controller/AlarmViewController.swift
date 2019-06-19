@@ -8,38 +8,53 @@
 
 import UIKit
 
-class AlarmViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    var alarm: Alarm!
+import UIKit
 
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var caption: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var tapToSelectImage: UILabel!
+class AlarmViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var alarm: Alarm!
+    
+    @IBOutlet var name: UITextField!
+    @IBOutlet var caption: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var tapToSelectImage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = alarm.name
+        
         name.text = alarm.name
         caption.text = alarm.caption
         datePicker.date = alarm.time
         
         if alarm.image.count > 0 {
-            // if we have an image, try to load it
             let imageFilename = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
             imageView.image = UIImage(contentsOfFile: imageFilename.path)
             tapToSelectImage.isHidden = true
         }
-        
-    }
-
-    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        alarm.time = datePicker.date
     }
     
-    @IBAction func imageViewTapped(_ sender: Any) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        alarm.name = name.text!
+        alarm.caption = caption.text!
+        title = alarm.name
+        
+        save()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        alarm.time = datePicker.date
+        
+        save()
+    }
+    
+    @IBAction func imageViewTapped(_ sender: UIImageView) {
         let vc = UIImagePickerController()
         vc.modalPresentationStyle = .formSheet
         vc.delegate = self
@@ -47,15 +62,12 @@ class AlarmViewController: UITableViewController, UITextFieldDelegate, UIImagePi
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // 1: dismiss the image picker
         dismiss(animated: true)
         
-        // 2: fetch the image that was picked
         guard let image = info[.originalImage] as? UIImage else { return }
         let fm = FileManager()
         
         if alarm.image.count > 0 {
-            // 3: the alarm already has an image, so delete it
             do {
                 let currentImage = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
                 
@@ -68,36 +80,22 @@ class AlarmViewController: UITableViewController, UITextFieldDelegate, UIImagePi
         }
         
         do {
-            // 4: generate a new filename for the image
             alarm.image = "\(UUID().uuidString).jpg"
-            
-            // 5: write the new image to the documents directory
             let newPath = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
             
             let jpeg = image.jpegData(compressionQuality: 0.8)
             try jpeg?.write(to: newPath)
+            
+            save()
         } catch {
             print("Failed to save new image")
         }
         
-        // 6: update the user interface
         imageView.image = image
         tapToSelectImage.isHidden = true
     }
     
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        alarm.name = name.text!
-        alarm.caption = caption.text!
-        title = alarm.name
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func save() {
+    func save() {
         NotificationCenter.default.post(name: Notification.Name("save"), object: nil)
     }
 }
