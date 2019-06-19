@@ -63,13 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				B01D5F9122BA18F800AA044D /* AppDelegate.swift */,
-				B01D5F9322BA18F800AA044D /* ViewController.swift */,
+				B01D5FAC22BA39B400AA044D /* Controller */,
 				B01D5F9522BA18F800AA044D /* Main.storyboard */,
 				B01D5F9822BA18F800AA044D /* Assets.xcassets */,
 				B01D5F9A22BA18F800AA044D /* LaunchScreen.storyboard */,
 				B01D5F9D22BA18F800AA044D /* Info.plist */,
-				B01D5FA322BA263D00AA044D /* GroupViewController.swift */,
-				B01D5FA522BA266C00AA044D /* AlarmViewController.swift */,
 				B01D5FAB22BA308E00AA044D /* Model */,
 			);
 			path = Alarmadillo;
@@ -82,6 +80,16 @@
 				B01D5FA922BA29FD00AA044D /* Alarm.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B01D5FAC22BA39B400AA044D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B01D5F9322BA18F800AA044D /* ViewController.swift */,
+				B01D5FA322BA263D00AA044D /* GroupViewController.swift */,
+				B01D5FA522BA266C00AA044D /* AlarmViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
