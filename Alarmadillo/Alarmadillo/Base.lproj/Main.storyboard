@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--View Controller-->
         <scene sceneID="qPf-uc-5zD">
             <objects>
-                <tableViewController id="vJl-I1-z8R" sceneMemberID="viewController">
+                <tableViewController id="vJl-I1-z8R" customClass="ViewController" customModule="Alarmadillo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="5ZK-Ck-Uh9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="830" y="187"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Group View Controller-->
         <scene sceneID="TRf-s3-GMS">
             <objects>
-                <tableViewController id="vFE-Zd-EVE" sceneMemberID="viewController">
+                <tableViewController id="vFE-Zd-EVE" customClass="GroupViewController" customModule="Alarmadillo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="YgL-Ge-ygo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,6 +78,9 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="vFE-Zd-EVE" id="9bM-WN-O1Y"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -102,6 +105,9 @@
                                         </label>
                                         <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1K-YK-l8i">
                                             <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchChanged:" destination="vFE-Zd-EVE" eventType="valueChanged" id="Xlx-vP-UEt"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -151,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="1549" y="187"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="Xx9-x5-vfR">
             <objects>
-                <tableViewController id="QAF-zS-a0e" sceneMemberID="viewController">
+                <tableViewController id="QAF-zS-a0e" customClass="AlarmViewController" customModule="Alarmadillo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LHQ-Yb-zW3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,6 +180,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QAF-zS-a0e" id="HWd-0L-liO"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -195,6 +204,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QAF-zS-a0e" id="Yki-aa-PAi"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -224,6 +236,9 @@
                                                             <date key="date" timeIntervalSinceReferenceDate="582624155.76937795">
                                                                 <!--2019-06-19 08:02:35 +0000-->
                                                             </date>
+                                                            <connections>
+                                                                <action selector="datePickerChanged:" destination="QAF-zS-a0e" eventType="valueChanged" id="nYL-0N-WTE"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -280,9 +295,20 @@
                             <outlet property="delegate" destination="QAF-zS-a0e" id="E0u-JB-hWv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="caption" destination="2mM-f1-a4P" id="gvZ-Ut-7u3"/>
+                        <outlet property="datePicker" destination="jBy-Va-aW7" id="Y6N-5M-db3"/>
+                        <outlet property="imageView" destination="2Vy-FE-ZfI" id="ka6-og-hNo"/>
+                        <outlet property="name" destination="dbz-WS-S4Q" id="rQ0-dW-O7L"/>
+                        <outlet property="tapToSelectImage" destination="eyM-oc-EI2" id="9h0-Fv-tCZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xe4-qn-Eam" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="JAc-sV-mar"/>
+                <tapGestureRecognizer id="JAc-sV-mar">
+                    <connections>
+                        <action selector="imageViewTapped:" destination="QAF-zS-a0e" id="Qq9-Sk-yHf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2261" y="187"/>
         </scene>
