@@ -9,6 +9,8 @@
 import UIKit
 
 class AlarmViewController: UITableViewController {
+    
+    var alarm: Alarm!
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var caption: UITextField!
