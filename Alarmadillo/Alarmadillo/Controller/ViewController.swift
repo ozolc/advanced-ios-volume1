@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UITableViewController {
     
@@ -45,6 +46,8 @@ class ViewController: UITableViewController {
         } catch {
             print("Failed to save")
         }
+        
+        updateNotifications()
     }
     
     func load() {
@@ -57,6 +60,16 @@ class ViewController: UITableViewController {
         }
         
         tableView.reloadData()
+    }
+    
+    func updateNotifications() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .sound]) { [unowned self] (granted, error) in
+            if granted {
+                self.createNotofocations()
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
