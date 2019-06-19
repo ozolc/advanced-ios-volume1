@@ -94,6 +94,10 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+    @objc func save() {
+        NotificationCenter.default.post(name: Notification.Name("save"), object: nil)
+    }
+    
     @IBAction func switchChanged(_ sender: UISwitch) {
         if sender.tag == playSoundTag {
             group.playSound = sender.isOn

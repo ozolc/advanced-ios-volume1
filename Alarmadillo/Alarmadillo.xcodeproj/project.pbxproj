@@ -16,6 +16,7 @@
 		B01D5FA622BA266C00AA044D /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D5FA522BA266C00AA044D /* AlarmViewController.swift */; };
 		B01D5FA822BA29F000AA044D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D5FA722BA29F000AA044D /* Group.swift */; };
 		B01D5FAA22BA29FD00AA044D /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01D5FA922BA29FD00AA044D /* Alarm.swift */; };
+		B036C1B922BA66880006A10E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036C1B822BA66880006A10E /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B01D5FA522BA266C00AA044D /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		B01D5FA722BA29F000AA044D /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		B01D5FA922BA29FD00AA044D /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		B036C1B822BA66880006A10E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B01D5F9A22BA18F800AA044D /* LaunchScreen.storyboard */,
 				B01D5F9D22BA18F800AA044D /* Info.plist */,
 				B01D5FAB22BA308E00AA044D /* Model */,
+				B036C1B822BA66880006A10E /* Helper.swift */,
 			);
 			path = Alarmadillo;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B01D5FA622BA266C00AA044D /* AlarmViewController.swift in Sources */,
+				B036C1B922BA66880006A10E /* Helper.swift in Sources */,
 				B01D5FA422BA263D00AA044D /* GroupViewController.swift in Sources */,
 				B01D5F9422BA18F800AA044D /* ViewController.swift in Sources */,
 				B01D5FA822BA29F000AA044D /* Group.swift in Sources */,
