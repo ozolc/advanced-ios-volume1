@@ -11,6 +11,8 @@ import UIKit
 class GroupViewController: UITableViewController, UITextFieldDelegate {
     
     var group: Group!
+    let playSoundTag = 1001
+    let enableTag = 1002
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +48,58 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
             alarmViewController.alarm = alarmToEdit
         }
     }
+    
+    func createGroupCell(for indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            // this is the first cell: editing the name of the group
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EditableText", for: indexPath)
+            
+            // look for the text field inside the cell...
+            if let cellTextField = cell.viewWithTag(1) as? UITextField {
+                // ...then give it the group name
+                cellTextField.text = group.name
+            }
+            
+            return cell
+            
+        case 1:
+            // this is the "play sound" cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Switch", for: indexPath)
+            
+            // look for both the label and the switch
+            if let cellLabel = cell.viewWithTag(1) as? UILabel, let cellSwitch = cell.viewWithTag(2) as? UISwitch {
+                // configure the cell with correct settings
+                cellLabel.text = "Play Sound"
+                cellSwitch.isOn = group.playSound
+                
+                // set the switch up with the playSoundTag tag so we know which one was changed later on
+                cellSwitch.tag = playSoundTag
+            }
+            
+            return cell
+            
+        default:
+            // if we're anything else, we must be the "enabled" switch, which is basically the same as the "play sound" switch
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Switch", for: indexPath)
+            
+            if let cellLabel = cell.viewWithTag(1) as? UILabel, let cellSwitch = cell.viewWithTag(2) as? UISwitch {
+                // obviously it's configured a little differently below!
+                cellLabel.text = "Enabled"
+                cellSwitch.isOn = group.enabled
+                cellSwitch.tag = enableTag
+            }
+            
+            return cell
+        }
+    }
 
     @IBAction func switchChanged(_ sender: UISwitch) {
+        if sender.tag == playSoundTag {
+            group.playSound = sender.isOn
+        } else {
+            group.enabled = sender.isOn
+        }
     }
     
     // MARK: - Table view data source
@@ -61,6 +113,25 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
             return 3
         } else {
             return group.alarms.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            // 1: pass the hard work onto a different method if we're in the first section
+            return createGroupCell(for: indexPath, in: tableView)
+        } else {
+            // 2: if we're here it means we're an alarm, so pull out a RightDetail cell for display
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RightDetail", for: indexPath)
+            
+            // 3: pull out the correct alarm from the alarms array
+            let alarm = group.alarms[indexPath.row]
+            
+            // 4: use the alarm to configure the cell, drawing on DateFormatter's localized date parsing
+            cell.textLabel?.text = alarm.name
+            cell.detailTextLabel?.text = DateFormatter.localizedString(from: alarm.time, dateStyle: .none, timeStyle: .short)
+            
+            return cell
         }
     }
 
